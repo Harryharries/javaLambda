@@ -1,6 +1,4 @@
-import java.util.Comparator;
-
-import java.util.TreeSet;
+import java.util.*;
 import org.junit.Test;
 public class TestLambda {
 	//Inner anonymous class
@@ -14,7 +12,6 @@ public class TestLambda {
 			}
 		};
 		TreeSet<Integer> ts = new TreeSet<>(com);
-		System.out.print("asd");
 		
 	}
 	
@@ -24,4 +21,14 @@ public class TestLambda {
 		Comparator<Integer> com = (x,y) -> Integer.compare(x, y);
 		TreeSet<Integer> ts = new TreeSet<>(com);
 	}
+	
+	List<Employee> employees = Arrays.asList(
+			new Employee("a",11,1000),
+			new Employee("b",21,4000),
+			new Employee("c",31,5000),
+			new Employee("d",18,3000),
+			new Employee("a2",11,19000)
+			);
+
+	
 }
