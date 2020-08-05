@@ -29,6 +29,53 @@ public class TestLambda {
 			new Employee("d",18,3000),
 			new Employee("a2",11,19000)
 			);
-
+	@Test
+	public void test3() {
+		List<Employee> list = filterEmployees2(employees);
+		
+		for(Employee employee : list) {
+			System.out.println(employee);
+		}
+	}
 	
+	//get all age >= 20
+	public List<Employee> filterEmployees(List<Employee> list){
+		List<Employee> emps = new ArrayList<>();
+		for (Employee emp: list) {
+			if(emp.getAge() >= 20) {
+				emps.add(emp);
+			}
+		}
+		return emps;
+	}
+	//get all salary >= 4000
+	public List<Employee> filterEmployees2(List<Employee> list){
+		List<Employee> emps = new ArrayList<>();
+		for (Employee emp: list) {
+			if(emp.getSalary() >= 4000) {
+				emps.add(emp);
+			}
+		}
+		return emps;
+	}
+	
+	//optimize 1: 
+	public List<Employee> filterEmployeeByAge(List<Employee> list, MyPredicate<Employee> mp){
+		List<Employee> emps = new ArrayList<>();
+		for (Employee emp: list) {
+			if(mp.test(emp)) {
+				emps.add(emp);
+			}
+		}
+		return emps;
+	}
+	
+	@Test
+	public void test4() {
+		List<Employee> list = filterEmployeeByAge(employees, new FilterEmployeeByAge());
+		
+		for(Employee employee : list) {
+			System.out.println(employee);
+		}
+	}
 }
