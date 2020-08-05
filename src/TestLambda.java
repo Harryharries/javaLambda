@@ -78,4 +78,29 @@ public class TestLambda {
 			System.out.println(employee);
 		}
 	}
+	
+	//optimize 2: inner anonymous class
+	@Test
+	public void test5() {
+		List<Employee> list = filterEmployeeByAge(employees, new FilterEmployeeByAge(){
+			@Override
+			public boolean test(Employee t) {
+				return t.getAge() >=30;
+			}
+		});
+		
+		for(Employee employee : list) {
+			System.out.println(employee);
+		}
+	}
+	
+	//optimize 3: Lambda
+	@Test
+	public void test6() {
+		List<Employee> list = filterEmployeeByAge(employees, (e)->e.getAge() >= 30);
+		
+		for(Employee employee : list) {
+			System.out.println(employee);
+		}
+	}
 }
